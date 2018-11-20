@@ -9,8 +9,8 @@
 import WatchKit
 /// Common base class for all Interface Controllers
 class CoordinatedInterfaceController: WKInterfaceController, Coordinated {
-    /// Reference a coordinator
-    /// - Discussion: Not retained
+    /// Reference to a coordinator
+    /// - Discussion: not retained
     weak var coordinator: Coordinator?
     
     override func awake(withContext context: Any?) {
