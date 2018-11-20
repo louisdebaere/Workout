@@ -40,7 +40,7 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
         super.awake(withContext: context)
         guard let context = context as? Context<Any> else { return }
         guard let activityType = context.content as? HKWorkoutActivityType else {
-            fatalError("Invalid context given to coordinated interface controller.")
+            fatalError("Invalid context given to coordinated interface controller")
         }
         configureWorkout(for: activityType)
         if WKInterfaceDevice.current().waterResistanceRating != .wr50 {
