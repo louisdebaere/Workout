@@ -1,6 +1,8 @@
 # Workout
 watchOS example of the Coordinator design pattern
 
+##### Blog post coming soon
+
 ## Design Considerations
 ### No tests
 I'm a big fan of TDD, but sadly watchOS targets do not support Xcode unit tests.
