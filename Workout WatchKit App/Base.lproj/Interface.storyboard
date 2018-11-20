@@ -1,15 +1,106 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Workout-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="ActivityInterfaceController" title="Workout" hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="ActivityInterfaceController" customModule="Workout_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="gBc-ej-Uiy">
+                            <items>
+                                <tableRow identifier="ActivityRowController" id="ENG-oE-j1q" customClass="ActivityRowController" customModule="Workout_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="100" alignment="left" layout="vertical" radius="24" spacing="6" id="2Hg-Vc-O2D">
+                                        <items>
+                                            <label alignment="center" text="Activity" textAlignment="left" id="VdW-Ia-4jd">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
+                                            </label>
+                                            <separator width="0.80000000000000004" alignment="center" alpha="0.59999999999999998" id="eAQ-cI-Zxh">
+                                                <color key="color" red="0.0" green="0.96078431369999995" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <label alignment="center" verticalAlignment="bottom" text="💪" id="LQt-P6-E5u">
+                                                <fontDescription key="font" type="system" pointSize="44"/>
+                                            </label>
+                                        </items>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="8" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="activityLabel" destination="VdW-Ia-4jd" id="GV2-TL-x9v"/>
+                                        <outlet property="emojiLabel" destination="LQt-P6-E5u" id="gQe-Nv-BDh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="gBc-ej-Uiy" id="w4T-Xh-o5H"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="-121" y="46"/>
+        </scene>
+        <!--WorkoutInterfaceController-->
+        <scene sceneID="cys-p9-tM2">
+            <objects>
+                <controller identifier="WorkoutInterfaceController" id="2pA-Ks-TvC" customClass="WorkoutInterfaceController" customModule="Workout_WatchKit_Extension">
+                    <items>
+                        <button width="1" height="0.40000000000000002" alignment="left" title="Pause" id="dtv-tB-aIe">
+                            <connections>
+                                <action selector="playPause" destination="2pA-Ks-TvC" id="r0K-5w-MX2"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" id="vkM-Ax-ajl">
+                            <items>
+                                <button width="0.5" alignment="left" title="💧" id="fK2-KS-o2x">
+                                    <fontDescription key="font" type="system" pointSize="24"/>
+                                    <connections>
+                                        <action selector="waterLock" destination="2pA-Ks-TvC" id="f6u-zO-qUa"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="⏯" id="6xn-oc-fYz">
+                                    <fontDescription key="font" type="system" pointSize="24"/>
+                                    <connections>
+                                        <action selector="nowPlaying" destination="2pA-Ks-TvC" id="Cyc-AS-fMk"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="gy9-qA-VJ5"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="End" id="A6K-xX-l9e">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.96078431369999995" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="finish" destination="2pA-Ks-TvC" id="nRG-yD-mEF"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="pauseWorkoutButton" destination="dtv-tB-aIe" id="Tw6-BQ-cwr"/>
+                        <outlet property="waterLockButton" destination="fK2-KS-o2x" id="Wue-hD-Djn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="107" y="46"/>
+        </scene>
+        <!--NowPlayingInterfaceController-->
+        <scene sceneID="hME-Y0-w60">
+            <objects>
+                <controller identifier="NowPlayingInterfaceController" id="Jr6-UM-6jg" customClass="NowPlayingInterfaceController" customModule="Workout_WatchKit_Extension">
+                    <items>
+                        <nowPlayingView alignment="left" id="WWT-i0-gUp"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="336" y="46"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.96078431369999995" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
