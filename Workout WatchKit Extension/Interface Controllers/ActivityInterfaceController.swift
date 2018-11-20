@@ -10,9 +10,9 @@ import WatchKit
 import HealthKit
 
 final class ActivityInterfaceController: CoordinatedInterfaceController {
-    
+    // MARK: Outlets
     @IBOutlet private var table: WKInterfaceTable!
-    
+    // MARK: Lifecycle
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         loadTable(with: supportedActivities)
@@ -22,7 +22,7 @@ final class ActivityInterfaceController: CoordinatedInterfaceController {
         let activity = supportedActivities[rowIndex]
         coordinator?.workout(with: activity)
     }
-    
+    // MARK: Private
     private func loadTable(with activities: [HKWorkoutActivityType]) {
         table.setNumberOfRows(activities.count, withRowType: ActivityRowController.identifier)
         activities.enumerated().forEach(loadRow)
@@ -44,6 +44,7 @@ final class ActivityInterfaceController: CoordinatedInterfaceController {
 }
 
 private extension ActivityRowController {
+    /// Configures a loaded table row
     func populate(with activity: HKWorkoutActivityType) {
         self.setActivityTitle(activity.description)
         self.setEmoji(activity.emoji)

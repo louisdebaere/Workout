@@ -7,7 +7,7 @@
 //
 
 import WatchKit
-
+/// Common base class for all Interface Controllers
 class CoordinatedInterfaceController: WKInterfaceController, Coordinated {
     /// Reference a coordinator
     /// - Discussion: Not retained
@@ -25,6 +25,8 @@ class CoordinatedInterfaceController: WKInterfaceController, Coordinated {
 }
 
 protocol Coordinated {
+    /// Reference to the navigation coordinato
+    /// - Important: Must not be retained: use weak or unowned reference
     var coordinator: Coordinator? { get set }
 }
 /// To inject the coordinator

@@ -48,11 +48,11 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
         }
         setTitle(activityType.description)
     }
-    // MARK: Private
+    
     override func didAppear() {
         session?.startActivity(with: Date())
     }
-    
+    // MARK: Private
     /// The session tracking the workout
     private var session: HKWorkoutSession?
     /// The workout builder associated with the session
@@ -69,7 +69,6 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
 }
 
 extension HKWorkoutActivityType: CustomStringConvertible {
-    
     public var description: String {
         switch self {
         case .walking: return "Walking"
@@ -86,5 +85,4 @@ extension HKWorkoutActivityType: CustomStringConvertible {
         default: return "🏊‍♀️"
         }
     }
-    
 }

@@ -19,6 +19,7 @@ protocol Coordinator: class {
 }
 
 final class WorkoutCoordinator: Coordinator {
+    /// - Important: has to be called from the main thread
     var moveToNowPlaying: (() -> Void)?
 }
 
