@@ -9,7 +9,7 @@
 import WatchKit
 
 final class ExtensionDelegate: NSObject, WKExtensionDelegate {
-        
+    /// The coordinator responsible for navigation
     var coordinator: Coordinator?
 
     func applicationDidFinishLaunching() {

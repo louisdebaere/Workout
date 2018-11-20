@@ -8,8 +8,9 @@
 
 import WatchKit
 
+/// For convenience when using 'reloadRootControllers(_:)'
 typealias Interface = (name: String, context: AnyObject)
-
+/// Separate entity responsible for the navigation flow
 protocol Coordinator: class {
     func start()
     func workout(with content: Any)
@@ -22,9 +23,9 @@ final class WorkoutCoordinator: Coordinator {
 }
 
 extension Coordinator {
-    
+    /// Load the ActivityInterfaceController at the storyboard entry point
     func start() { presentInterface(.root) }
-    
+    /// Load a new workout
     func workout(with content: Any) {
         let context = Context(content: content, coordinator: self) as AnyObject
         let interfaces: [Interface] = [
@@ -33,7 +34,7 @@ extension Coordinator {
         ]
         WKInterfaceController.reloadRootControllers(withNamesAndContexts: interfaces)
     }
-        
+    /// Enable water lock (only on supported devices)
     func waterLock() {
         let device = WKInterfaceDevice.current()
         assert(device.waterResistanceRating == .wr50)
@@ -51,7 +52,7 @@ extension Coordinator {
     }
     
 }
-
+/// Convenient enum based scope for the stringly typed interface controller identifiers
 enum InterfaceIdentifier: String {
     case root = "ActivityInterfaceController"
     case workout = "WorkoutInterfaceController"

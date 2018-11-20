@@ -10,7 +10,7 @@ import WatchKit
 import HealthKit
 
 final class WorkoutInterfaceController: CoordinatedInterfaceController {
-    
+    // MARK: Outlets
     @IBOutlet private var pauseWorkoutButton: WKInterfaceButton!
     @IBOutlet private var waterLockButton: WKInterfaceButton?
     
@@ -35,10 +35,7 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
         session?.end()
         coordinator?.start()
     }
-    
-    private var session: HKWorkoutSession?
-    private var workoutBuilder: HKWorkoutBuilder?
-    
+    // MARK: Lifecycle Events
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         guard let context = context as? Context<Any> else { return }
@@ -51,10 +48,15 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
         }
         setTitle(activityType.description)
     }
-    
+    // MARK: Private
     override func didAppear() {
         session?.startActivity(with: Date())
     }
+    
+    /// The session tracking the workout
+    private var session: HKWorkoutSession?
+    /// The workout builder associated with the session
+    private var workoutBuilder: HKWorkoutBuilder?
     
     private func configureWorkout(for activity: HKWorkoutActivityType) {
         let workoutConfiguration = HKWorkoutConfiguration()
@@ -76,7 +78,7 @@ extension HKWorkoutActivityType: CustomStringConvertible {
         default: return "Other"
         }
     }
-    
+    /// Single character emoji reprensentation of the activity
     var emoji: String {
         switch self {
         case .walking: return "🚶‍♀️"

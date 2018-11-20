@@ -9,7 +9,8 @@
 import WatchKit
 
 class CoordinatedInterfaceController: WKInterfaceController, Coordinated {
-    
+    /// Reference a coordinator
+    /// - Discussion: Not retained
     weak var coordinator: Coordinator?
     
     override func awake(withContext context: Any?) {
@@ -26,7 +27,7 @@ class CoordinatedInterfaceController: WKInterfaceController, Coordinated {
 protocol Coordinated {
     var coordinator: Coordinator? { get set }
 }
-
+/// To inject the coordinator
 struct Context<C: Any> {
     let content: C
     let coordinator: Coordinator?

@@ -9,7 +9,7 @@
 import WatchKit
 
 final class ActivityRowController: NSObject {
-    
+    /// The row controller identifier set in the storyboard
     static let identifier = "ActivityRowController"
     
     @IBOutlet private var activityLabel: WKInterfaceLabel!
