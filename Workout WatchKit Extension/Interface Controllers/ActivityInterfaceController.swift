@@ -25,10 +25,10 @@ final class ActivityInterfaceController: CoordinatedInterfaceController {
     // MARK: Private
     private func loadTable(with activities: [HKWorkoutActivityType]) {
         table.setNumberOfRows(activities.count, withRowType: ActivityRowController.identifier)
-        activities.enumerated().forEach(loadRow)
+        activities.enumerated().forEach(populateRow)
     }
     
-    private func loadRow(with index: Int, for activity: HKWorkoutActivityType) {
+    private func populateRow(with index: Int, for activity: HKWorkoutActivityType) {
         guard let row = table.rowController(at: index) as? ActivityRowController else {
             fatalError("Invalid row controller identifier")
         }
