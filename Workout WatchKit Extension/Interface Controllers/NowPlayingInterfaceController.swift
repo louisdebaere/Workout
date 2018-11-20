@@ -10,8 +10,8 @@ import WatchKit
 import Foundation
 
 
-class NowPlayingInterfaceController: CoordinatedInterfaceController {
-        
+final class NowPlayingInterfaceController: CoordinatedInterfaceController {
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         coordinator?.moveToNowPlaying = becomeCurrentPage

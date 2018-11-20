@@ -30,7 +30,7 @@ final class WorkoutInterfaceController: CoordinatedInterfaceController {
             self.coordinator?.moveToNowPlaying?()
         }
     }
-
+    
     @IBAction private func finish() {
         session?.end()
         coordinator?.start()

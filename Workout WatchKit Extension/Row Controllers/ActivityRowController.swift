@@ -8,7 +8,7 @@
 
 import WatchKit
 
-class ActivityRowController: NSObject {
+final class ActivityRowController: NSObject {
     
     static let identifier = "ActivityRowController"
     

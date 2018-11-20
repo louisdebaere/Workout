@@ -17,7 +17,7 @@
                         <table alignment="left" id="gBc-ej-Uiy">
                             <items>
                                 <tableRow identifier="ActivityRowController" id="ENG-oE-j1q" customClass="ActivityRowController" customModule="Workout_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="100" alignment="left" layout="vertical" radius="24" spacing="6" id="2Hg-Vc-O2D">
+                                    <group key="rootItem" width="1" height="100" alignment="left" layout="vertical" radius="24" spacing="8" id="2Hg-Vc-O2D">
                                         <items>
                                             <label alignment="center" text="Activity" textAlignment="left" id="VdW-Ia-4jd">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,7 +73,7 @@
                                 </button>
                             </items>
                         </group>
-                        <separator alignment="left" id="gy9-qA-VJ5"/>
+                        <separator alignment="left" alpha="0.59999999999999998" id="gy9-qA-VJ5"/>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="End" id="A6K-xX-l9e">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" red="0.0" green="0.96078431369999995" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

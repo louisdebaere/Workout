@@ -17,7 +17,7 @@ protocol Coordinator: class {
     var moveToNowPlaying: (() -> Void)? { get set }
 }
 
-class WorkoutCoordinator: Coordinator {
+final class WorkoutCoordinator: Coordinator {
     var moveToNowPlaying: (() -> Void)?
 }
 
